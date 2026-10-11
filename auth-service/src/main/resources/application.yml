@@ -1,0 +1,22 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: auth-service
+  datasource:
+    url: ${AUTH_DB_URL:jdbc:postgresql://127.0.0.1:5434/authdb}
+    username: ${AUTH_DB_USER:auth}
+    password: ${AUTH_DB_PASSWORD:auth}
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: update
+
+app:
+  jwt:
+    secret: ${JWT_SECRET:change-me-to-a-long-random-secret-at-least-32-bytes}
+    expiration-ms: 3600000
+  user-service:
+    base-url: ${USER_SERVICE_URL:http://localhost:8082}
+    internal-api-key: ${INTERNAL_API_KEY:internal-dev-key}

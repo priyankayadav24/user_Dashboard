@@ -1,0 +1,19 @@
+server:
+  port: 8082
+
+spring:
+  application:
+    name: user-service
+  datasource:
+    url: ${USER_DB_URL:jdbc:postgresql://127.0.0.1:5434/userdb}
+    username: ${USER_DB_USER:user}
+    password: ${USER_DB_PASSWORD:user}
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: update
+
+app:
+  jwt:
+    secret: ${JWT_SECRET:change-me-to-a-long-random-secret-at-least-32-bytes}
+  internal-api-key: ${INTERNAL_API_KEY:internal-dev-key}
